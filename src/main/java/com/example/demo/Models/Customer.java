@@ -14,10 +14,10 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long customerNumber;
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(nullable = false)
+    @Column
     private String lastName;
 
     @Column(nullable = false)

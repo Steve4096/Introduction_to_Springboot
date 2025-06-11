@@ -25,9 +25,14 @@ public class CustomerController {
     return ResponseEntity.ok(customerService.getCustomer(customerNumber));
 }
 
-    @GetMapping("/findCustomerByName/{firstName}")
-    public ResponseEntity<Customer> findCustomerByName (@PathVariable String firstName){
-    return ResponseEntity.ok(customerService.getCustomerByName(firstName));
+//    @GetMapping("/findCustomerByName/{firstName}")
+//    public ResponseEntity<Customer> findCustomerByName (@PathVariable String firstName){
+//    return ResponseEntity.ok(customerService.getCustomerByName(firstName));
+//    }
+
+    @GetMapping("/findCustomerByName")
+    public ResponseEntity<List<Customer>> findCustomerByName (@RequestParam String firstName){
+        return ResponseEntity.ok(customerService.getCustomerByName(firstName));
     }
 
     @GetMapping("/fetchAllCustomers")

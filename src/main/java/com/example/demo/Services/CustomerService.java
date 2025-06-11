@@ -24,22 +24,12 @@ public class CustomerService {
               .orElseThrow(()->new CustomerNotFoundException(customerNumber));
     }
 
-    public Customer getCustomerByName(String firstName){
-        return customerRepository.findByFirstName(firstName)
-                .ifPresent(customer -> {
-                    System.out.println("Customer found "+customer.getFirstName()});
-                })
-                .orElseThrow(()->new CustomerNotFoundException(firstName));
+    public List<Customer> getCustomerByName(String firstName){
+        return customerRepository.findByFirstName(firstName);
+//                .ifPresent(customer -> {
+//                    System.out.println("Customer found "+customer.getFirstName()});
+                //.orElseThrow(()->new CustomerNotFoundException(firstName));
     }
-
-//    public Customer getCustomerByName(String firstName){
-//        List<Customer> all = customerRepository.findAll();
-//        all.forEach(c -> System.out.println("Found: " + c.getFirstName()));
-//
-//        return customerRepository.findByFirstName(firstName)
-//                .orElseThrow(() -> new CustomerNotFoundException(firstName));
-//    }
-
 
     public List<Customer> fetchExistingCustomers(){
         return customerRepository.findAll();
